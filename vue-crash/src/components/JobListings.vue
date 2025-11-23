@@ -15,18 +15,17 @@ defineProps({
   limit:Number, 
   showButton:{
     type:Boolean,
-   default:false , 
+     default:false , 
   }
 });
 
  onMounted(async () => {
    try {
-     const response = await axios.get('http://localhost:3000/jobs');
+     const response = await axios.get('/api/jobs');
      state.jobs = response.data;
    } catch (error) {
      console.error('Error loading job data:', error);
    }finally {
-
      state.isLoading = false;
    }
  });
@@ -57,8 +56,7 @@ defineProps({
       <RouterLink
         to="/jobs"
         class="block bg-black text-white text-center py-4 px-6 rounded-xl hover:bg-gray-700"
-        >View All Jobs</RouterLink
-      >
+        >View All Jobs</RouterLink>
     </section>
 
     
